@@ -1,0 +1,19 @@
+{
+  "name": "new-package",
+  "version": "1.0.0",
+  "description": "liri-app",
+  "main": "liri.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hmahserdjian/liri-node-app.git"
+  },
+  "author": "Hrag Mahserdjian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hmahserdjian/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/Hmahserdjian/liri-node-app#readme"
+}
