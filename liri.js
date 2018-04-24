@@ -35,7 +35,7 @@ var spotify1 = function (song) {
     (
         spotify.search({
                 type: 'track',
-                query: '',
+                query: song,
                 limit: 1
             },
             function (err, data) {
@@ -74,11 +74,7 @@ var thisRun = function (caseData, functionData) {
             tweets1()
             break;
         case "spotify-this-song":
-            if (spotify1 === undefined) {
-                functionData = defaultSong;
-            }
             spotify1(functionData);
-            console.log(spotify1)
             break;
     }
 
