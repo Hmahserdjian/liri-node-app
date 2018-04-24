@@ -1,3 +1,5 @@
+import { runInThisContext } from "vm";
+
 var keys= require("./keys.js");
 var Twitter = require('twitter');
 var Spotify = require('node-spotify-api');
@@ -10,34 +12,77 @@ var spotify = new Spotify(keys.spotify);
 
 var client = new Twitter(keys.twitter);
 
-var spotifyArgs = process.argv;
+var nodeArgs = process.argv;
 
+var nodeCall = nodeArgs[2];
 
-var web = "";
-for (var i = 2; i < spotifyArgs.length; i++) {
+var userInput = "";
 
-    address = address + " " + spotifyArgs[i];
-
-    spotify
-        .request('https://api.spotify.com/v1/artist/')
-        .then(function (data) {
-            console.log(data);
-        })
-        .catch(function (err) {
-            console.error('Error occurred: ' + err);
-        });
+for (let i = 2; i < nodeArgs.length; i++) {
+  userInput += nodeArgs[i] + "";
+    
 }
-var userInput = (
-spotify.search({ type: 'track', query: 'all eyez on me', limit: 1 }, function (err, data) {
+
+for (var i = 3; i < nodeArgs.length; i++) {
+
+  var address = address + " " + userInput;
+
+   
+}
+var spotify1 = function (song) {
+    if (song == undefined){
+        song = "the sign";
+    }
+     
+(
+    spotify.search(
+         {
+             type: 'track',
+              query: '', 
+              limit: 1 }, 
+function (err, data) {
     if (err) {
+
         return console.log('Error occurred: ' + err);
     }
+
 data.tracks.items.forEach(item => {
-    console.log(item.album.name);
-    console.log(item.artists[0].name);
-    console.log(item.tracks.name);
+    console.log(item.album.release_date);
+    console.log(item.artists[0]);
 });
     
 
-    console.log(data.items.track.artists.name);
+    
 }));
+
+var tweets1 = function () {
+    { screen_name: 'Skywalkerjabba' };
+
+    client.get('statuses/user_timeline', function (error, tweets, response) {
+        if (!error) {
+            console.log(tweets);
+        }
+    });
+
+
+}
+}
+
+var thisRun = function(caseData, functionData) {
+    switch (caseData) {
+        case "my tweets":
+            tweets1
+            break;
+            case "spotify":
+            if (functionData === undefined) {
+                functionData = defaultSong;
+            }
+            spotify1(functionData);
+            break;
+    }
+    
+
+}
+//this is calling a function called run this so var runThis = your code.
+thisRun(process.argv[2], process.argv[3]);
+

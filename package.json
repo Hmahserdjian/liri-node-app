@@ -22,5 +22,8 @@
     "request": "^2.85.0",
     "tweet": "0.0.0",
     "twitter": "^1.7.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.4"
   }
 }
